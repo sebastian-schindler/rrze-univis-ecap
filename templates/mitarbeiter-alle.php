@@ -72,11 +72,11 @@ foreach ($data as $position => $persons):
                 }
             }
             // email
-            foreach ($person['locations'] as $location) {
-                if (!empty($location['email']) && in_array('mail', $this->show) && !in_array('mail', $this->hide)) {
-                    $pers[] = '<span class="screen-reader-text">' . __('Email', 'rrze-univis') . ': </span><span itemprop="email">' . $location['email'] . '</span>';
-                }
-            }
+            // foreach ($person['locations'] as $location) {
+            //     if (!empty($location['email']) && in_array('mail', $this->show) && !in_array('mail', $this->hide)) {
+            //         $pers[] = '<span class="screen-reader-text">' . __('Email', 'rrze-univis') . ': </span><span itemprop="email">' . $location['email'] . '</span>';
+            //     }
+            // }
             // address
             foreach ($person['locations'] as $location) {
                 if (!empty($location['url']) && ((in_array('url', $this->show) && !in_array('url', $this->hide)) || ((in_array('address', $this->show) && !in_array('address', $this->hide) && !in_array('url', $this->hide))))) {
