@@ -2,6 +2,8 @@
 
 Darstellung von Lehrveranstaltungen und organisatorischen Daten aus UnivIS.
 
+*Fork zur Entfernung von E-Mail-Adressen aus der Gesamtansicht einer Einrichtung (um massenweises Abgreifen von E-Mail-Adressen zu erschweren), ohne die E-Mail-Adressen aus der Unterseite einer spezifischen Personen (Klick auf den Namen in der Gesamtansicht) zu entfernen.*
+
 ## Download 
 
 GITHub-Repo: https://github.com/RRZE-Webteam/rrze-univis
