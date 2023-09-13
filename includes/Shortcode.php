@@ -64,6 +64,23 @@ class Shortcode
         wp_enqueue_style('rrze-univis');
     }
 
+    // Same as http_build_query but without HTTP encoding
+    public function custom_http_build_query($data) {
+        $query = '';
+        foreach ($data as $key => $value) {
+            // Skip key-value pairs where the value is null
+            if ($value !== null) {
+                // Append the key and value, separated by '='
+                $query .= $key . '=' . $value . '&';
+            }
+        }
+        // Remove the trailing '&' if it exists
+        if (!empty($query)) {
+            $query = rtrim($query, '&');
+        }
+        return $query;
+    }
+
     /**
      * Generieren Sie die Shortcode-Ausgabe
      * @param  array   $atts Shortcode-Attribute
