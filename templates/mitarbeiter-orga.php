@@ -1,4 +1,8 @@
-<?php if ($data): ?>
+<?php
+
+namespace RRZE\UnivIS;
+
+if ($data): ?>
 <div class="rrze-univis">
     <?php foreach ($data as $department => $persons):
     echo '<h' . $this->atts['hstart'] . '><a name="' . $department . '">' . $department . '</a></h' . $this->atts['hstart'] . '>';
@@ -33,7 +37,7 @@
                     'show' => implode(',', $this->show),
                     'hide' => implode(',', $this->hide),
                 ];
-                $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . http_build_query($aShortcodeParams);
+                $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . Main::custom_http_build_query($aShortcodeParams);
                 $fullname .= '<a class="url" href="' . $url . '" itemprop="name">';
             endif;
             $fullname .= $n;

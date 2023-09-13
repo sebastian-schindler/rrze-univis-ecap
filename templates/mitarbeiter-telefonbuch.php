@@ -1,4 +1,8 @@
-<?php if ($data) : ?>
+<?php
+
+namespace RRZE\UnivIS;
+
+if ($data) : ?>
 <div class="rrze-univis">
 <p class="groupindex">
         <?php if (in_array('sprungmarken', $this->show) && !in_array('sprungmarken', $this->hide)) : ?>
@@ -35,7 +39,7 @@
                         'show' => implode(',', $this->show),
                         'hide' => implode(',', $this->hide)
                     ];
-                    $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . http_build_query($aShortcodeParams);
+                    $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . Main::custom_http_build_query($aShortcodeParams);
                     $fullname .= '<a class="url" href="' . $url . '" itemprop="name">';
                 endif; 
                 $fullname .= $n;
