@@ -1,6 +1,10 @@
 <?php if ($data): ?>
 <div class="rrze-univis">
-    <?php foreach ($data as $department => $persons):
+    <?php
+	
+namespace RRZE\UnivIS;
+
+foreach ($data as $department => $persons):
     echo '<h' . $this->atts['hstart'] . '><a name="' . $department . '">' . $department . '</a></h' . $this->atts['hstart'] . '>';
     ?>
 	    <ul class="person liste-person" itemscope itemtype="http://schema.org/Person">
