@@ -4,10 +4,10 @@
  * Plugin Name:     RRZE UnivIS
  * Plugin URI:      https://github.com/RRZE-Webteam/rrze-univis
  * Description:     Einbindung von Daten aus UnivIS
- * Version:         3.7.2-noemail
+ * Version:         3.7.2-ecap
  * Requires at least: 6.1
  * Requires PHP:      8.0
- * Author:          RRZE-Webteam
+ * Author:          RRZE-Webteam, ECAP Webmasters
  * Author URI:      https://blogs.fau.de/webworking/
  * License:         GNU General Public License v3
  * License URI:     http://www.gnu.org/licenses/gpl-3.0.html
