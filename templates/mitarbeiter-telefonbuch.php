@@ -1,4 +1,8 @@
-<?php if ($data) : ?>
+<?php
+
+namespace RRZE\UnivIS;
+
+if ($data) : ?>
 <div class="rrze-univis">
 <p class="groupindex">
         <?php if (in_array('sprungmarken', $this->show) && !in_array('sprungmarken', $this->hide)) : ?>
