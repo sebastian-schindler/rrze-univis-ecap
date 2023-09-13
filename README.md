@@ -2,7 +2,7 @@
 
 Darstellung von Lehrveranstaltungen und organisatorischen Daten aus UnivIS.
 
-*Fork zur Entfernung von E-Mail-Adressen aus der Gesamtansicht einer Einrichtung (um massenweises Abgreifen von E-Mail-Adressen zu erschweren), ohne die E-Mail-Adressen aus der Unterseite einer spezifischen Personen (Klick auf den Namen in der Gesamtansicht) zu entfernen.*
+*Forked to fix a problem with comma escaping, see [this GitHub issue](https://github.com/RRZE-Webteam/rrze-univis/issues/210). Additionally, hide eMail addresses in list view to make it harder for crawler bots.*
 
 ## Download 
 
