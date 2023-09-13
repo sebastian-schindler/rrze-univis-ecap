@@ -30,7 +30,7 @@ foreach ($data as $position => $persons):
                     'show' => implode(',', $this->show),
                     'hide' => implode(',', $this->hide),
                 ];
-                $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . http_build_query($aShortcodeParams);
+                $url = get_permalink() . 'univisid/' . $person['person_id'] . '_' . custom_http_build_query($aShortcodeParams);
                 $fullname .= '<a class="url" href="' . $url . '" itemprop="name">';
             endif;
             $fullname .= $n;
