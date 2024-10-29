@@ -66,11 +66,13 @@ class UnivISAPI
         if (!$url) {
             return 'Set UnivIS Org ID in settings.';
         }
+
         $data = file_get_contents($url);
         if (!$data) {
             UnivISAPI::log('getData', 'error', "no data returned using $url");
             return false;
         }
+
 
         $data = json_decode($data, true);
         $data = $this->mapIt($dataType, $data);
@@ -540,7 +542,8 @@ class UnivISAPI
             return [];
         }
         // sort
-        if (in_array($dataType, ['personByID', 'personByOrga', 'personByName', 'personByOrgaPhonebook'])) {
+        // 2024-01-10 (lapmk) fix mitarbeiter-telefonbuch: missing sorting by lastname
+        if (in_array($dataType, ['personByID', 'personByOrga', 'personByName', 'personByOrgaPhonebook', ''])) {
             usort($data, [$this, 'sortByLastname']);
         }
 
@@ -704,9 +707,16 @@ class UnivISAPI
         return $ret;
     }
 
+    // 2024-01-10 (lapmk) function to replace German umlaute for sorting, i.e. ä->ae, ß->ss, ... (used in function sortByLastname)
+    private static function replaceUmlauteForSort($a)
+    {
+        return str_replace(array('Ä', 'ä', 'Ö', 'ö', 'Ü', 'ü', 'ß'), array('Ae', 'ae', 'Oe', 'oe', 'Ue', 'ue', 'ss'), $a);
+    }
+
     private function sortByLastname($a, $b)
     {
-        return strcasecmp($a["lastname"], $b["lastname"]);
+        // 2024-01-10 (lapmk) quickfix sorting of German umlaute
+        return strcasecmp(self::replaceUmlauteForSort($a["lastname"]), self::replaceUmlauteForSort($b["lastname"]));
     }
 
     private function sortByName($a, $b)
@@ -813,7 +823,7 @@ class UnivISAPI
         return implode('', $matches[0]);
     }
 
-    public function formatUnivIS($txt)
+    public static function formatUnivIS($txt)
     {
         $subs = array(
             '/^\-+\s+(.*)?/mi' => '<ul><li>$1</li></ul>', // list
